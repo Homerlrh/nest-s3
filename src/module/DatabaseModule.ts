@@ -13,6 +13,7 @@ const db = TypeOrmModule.forRootAsync({
     password: process.env.DB_PASSWORD || 'rootUser',
     database: process.env.DB_NAME || 'pieping',
     entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    autoLoadEntities: true,
     synchronize: false,
   }),
 });

@@ -6,7 +6,7 @@ import { Image } from '../Database/entities/Image.entity';
 @Injectable()
 export class ImageService {
   constructor(
-    @InjectRepository(Image) private imagesRepository: Repository<Image>
+    @InjectRepository(Image) private imagesRepository: Repository<Image>,
   ) {}
 
   async getImages(image: Image): Promise<Image[]> {
@@ -21,7 +21,7 @@ export class ImageService {
   }
 
   async createImage(image: Image) {
-    return await this.imagesRepository.create(image);
+    return await this.imagesRepository.save(image);
   }
 
   async updateImage(image: Image) {
